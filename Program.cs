@@ -17,19 +17,12 @@ namespace Binary_Search
                 array[i] = int.Parse(Console.ReadLine());
             }
 
-            Array.Sort(array);
-
-            Console.WriteLine();
-            Console.WriteLine("Please find array formed in ascending order:");
-            for (int i = 0; i < array.Length; i++)
-            {
-                Console.WriteLine($"Element at index {i}: {array[i]}");
-            }
+            ArraySortList(array);
             
             Console.Write("Please enter the value of the element in the array to be searched: ");
             int elementToSearch = int.Parse(Console.ReadLine());
 
-            int resultIndex = binarySearch(array, elementToSearch);
+            int resultIndex = BinarySearch(array, elementToSearch);
             if (resultIndex == -1)
             {
                 Console.WriteLine("Element is not present in the array");
@@ -40,7 +33,19 @@ namespace Binary_Search
             }
         }
 
-        public static int binarySearch(int[] array, int x)
+        public static void ArraySortList(int[] array)
+        {
+            Array.Sort(array);
+
+            Console.WriteLine();
+            Console.WriteLine("Please find array formed in ascending order:");
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.WriteLine($"Element at index {i}: {array[i]}");
+            }
+        }
+
+        public static int BinarySearch(int[] array, int x)
         {
             int left = 0;
             int right = array.Length - 1;
